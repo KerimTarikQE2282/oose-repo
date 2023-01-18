@@ -7,7 +7,7 @@ using WebApplication1.Data;
 
 namespace WebApplication1.Migrations
 {
-    [DbContext(typeof(PatientDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class PatientDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -17,6 +17,33 @@ namespace WebApplication1.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("WebApplication1.Data.Hospitals", b =>
+                {
+                    b.Property<int>("HospitalId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("HospitalKebele")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HospitalKifleKetema")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HospitalName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HospitalRep")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HospitalWoreda")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("HospitalId");
+
+                    b.ToTable("Hospitals");
+                });
 
             modelBuilder.Entity("WebApplication1.Data.Patients", b =>
                 {

@@ -9,9 +9,9 @@ namespace WebApplication1.Repository
 {
     public class PatientRepository : IPatientRepository
     {
-        private readonly PatientDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public PatientRepository(PatientDbContext context)
+        public PatientRepository(ApplicationDbContext context)
         {
             _context = context;
         }

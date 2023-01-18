@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kimot\\Desktop\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\kerim\\Desktop\\to other\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kimot\\Desktop\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\kerim\\Desktop\\to other\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kimot\\Desktop\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\kerim\\Desktop\\to other\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\kimot\\Desktop\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\kimot\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kimot\\Desktop\\WebApplication1\\obj\\",
+        "projectPath": "C:\\Users\\kerim\\Desktop\\to other\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\kerim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kerim\\Desktop\\to other\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kimot\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kerim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -76,6 +76,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.17, 5.0.17]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -84,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

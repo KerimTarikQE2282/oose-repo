@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using WebApplication1.Models;
 using WebApplication1.Repository;
@@ -16,12 +17,12 @@ namespace WebApplication1.Controllers
         {
         PatientRepo = patientRepository;
         }
-        [HttpGet]
+        /*[HttpGet]
         public async Task<IActionResult> GetAllPatients()
         {
             var Patients =await PatientRepo.GetAllPatientsAsync();
             return Ok(Patients);
-        }
+        }*/
         [HttpGet("{phoneNumber}")]
         public async Task<IActionResult> Search(string phoneNumber)
         {
@@ -35,8 +36,9 @@ namespace WebApplication1.Controllers
         [HttpPost("")]
         public async Task<IActionResult> RegisterPatient([FromBody]PatientsModel patientModel)
         {
+            Console.Write(patientModel);
             var id = await PatientRepo.RegisterPatientAsync(patientModel);
-            return Ok(patientModel);
+            return CreatedAtAction(nameof(Search), new { id = id, controller = "Patients" }, id);
         }
 
     }

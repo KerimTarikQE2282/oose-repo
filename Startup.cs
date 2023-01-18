@@ -30,9 +30,24 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PatientDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AkmegnDb")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AkmegnDb")));
             services.AddControllers();
             services.AddTransient<IPatientRepository, PatientRepository>();
+            services.AddScoped<IHospitalReporitory,Hospitals_reposirory>();
+            var provider = services.BuildServiceProvider();
+            var configuration =provider.GetService<IConfiguration>();
+            services.AddCors(
+                options =>
+                {
+                    var frontendUrl = configuration.GetValue<string>("frontend_url");
+                    options.AddDefaultPolicy(builder =>
+                    {
+                        builder.WithOrigins(frontendUrl).AllowAnyMethod().AllowAnyHeader();
+                        
+                    });
+            }
+                
+                 );
 
         }
 
@@ -43,7 +58,10 @@ namespace WebApplication1
             {
                 app.UseDeveloperExceptionPage();
             }
+            
             app.UseRouting();
+            app.UseAuthorization();
+            app.UseCors();
           
             app.UseEndpoints(endpoints =>
             {
