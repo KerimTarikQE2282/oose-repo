@@ -49,6 +49,9 @@ namespace WebApplication1.Repository
                 emergencyPhone = x.emergencyPhone
 
             }).FirstOrDefaultAsync();
+            // Kerim what if instead of returning the first hit, we counted all of the matching and 
+            // if there are multiple results with the same phone number we search by name
+            // so we also add first name to the parameter and an if...else statement to handle it  
             return records;
         }
         public async Task<string> RegisterPatientAsync(PatientsModel Patient)
