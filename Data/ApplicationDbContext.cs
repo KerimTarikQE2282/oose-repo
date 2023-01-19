@@ -11,5 +11,6 @@ namespace WebApplication1.Data
         }
         public DbSet<Patients> Patients{ get; set; }
         public DbSet<Hospitals> Hospitals { get; set;}
+        public DbSet<SystemUsers> SystemUsers { get; set; }
     }
 }

@@ -13,8 +13,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Data;
-using WebApplication1.Repository;
-
+using WebApplication1.Repository.Hospital;
+using WebApplication1.Repository.Patient;
+using WebApplication1.Repository.User;
 
 namespace WebApplication1
 {
@@ -34,6 +35,7 @@ namespace WebApplication1
             services.AddControllers();
             services.AddTransient<IPatientRepository, PatientRepository>();
             services.AddScoped<IHospitalReporitory,Hospitals_reposirory>();
+            services.AddScoped<IUsersRepository, UsersRepository>();
             var provider = services.BuildServiceProvider();
             var configuration =provider.GetService<IConfiguration>();
             services.AddCors(

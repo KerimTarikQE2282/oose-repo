@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using WebApplication1.Data;
 using WebApplication1.Models;
-using WebApplication1.Repository;
+using WebApplication1.Repository.Hospital;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

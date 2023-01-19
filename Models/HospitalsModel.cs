@@ -11,5 +11,6 @@ namespace WebApplication1.Models
         public string HospitalKebele { get; set; }
         public string HospitalKifleKetema { get; set; }
         public string HospitalWoreda { get; set; }
+
     }
 }

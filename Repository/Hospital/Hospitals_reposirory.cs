@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 using WebApplication1.Data;
 using WebApplication1.Models;
 
-namespace WebApplication1.Repository
+namespace WebApplication1.Repository.Hospital
 {
     public class Hospitals_reposirory : IHospitalReporitory
     {
         private readonly ApplicationDbContext _context;
-        public Hospitals_reposirory(ApplicationDbContext context) {
+        public Hospitals_reposirory(ApplicationDbContext context)
+        {
             _context = context;
         }
 
         public async Task<List<HospitalsModel>> GetAllHospitalsAsync()
         {
-            var records =await  _context.Hospitals.Select(x => new HospitalsModel()
+            var records = await _context.Hospitals.Select(x => new HospitalsModel()
             {
 
                 HospitalId = x.HospitalId,
@@ -27,7 +28,7 @@ namespace WebApplication1.Repository
                 HospitalKifleKetema = x.HospitalKifleKetema,
                 HospitalWoreda = x.HospitalWoreda
 
-            }). ToListAsync();
+            }).ToListAsync();
             return records;
         }
         public async Task<HospitalsModel> GetHospitalsAsync(int _HospitalId)
@@ -49,7 +50,7 @@ namespace WebApplication1.Repository
         {
             var hospital = new Hospitals()
             {
-               
+
                 HospitalName = Hospital.HospitalName,
                 HospitalRep = Hospital.HospitalRep,
                 HospitalKebele = Hospital.HospitalKebele,
@@ -57,7 +58,7 @@ namespace WebApplication1.Repository
                 HospitalWoreda = Hospital.HospitalWoreda
             };
             _context.Hospitals.Add(hospital);
-          await  _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return hospital.HospitalId;
 
 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using WebApplication1.Models;
-using WebApplication1.Repository;
+using WebApplication1.Repository.Patient;
 
 namespace WebApplication1.Controllers
 {
