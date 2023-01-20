@@ -9,8 +9,8 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230119105849_user table created")]
-    partial class usertablecreated
+    [Migration("20230120115032_representative added")]
+    partial class representativeadded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,6 +84,84 @@ namespace WebApplication1.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Patients");
+                });
+
+            modelBuilder.Entity("WebApplication1.Data.Representative", b =>
+                {
+                    b.Property<int>("RepresentativeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HospitalId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("kebele")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("kifleketema")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("middleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("region")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("woreda")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("RepresentativeId");
+
+                    b.ToTable("Representatives");
+                });
+
+            modelBuilder.Entity("WebApplication1.Data.SystemUsers", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("HospitalId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("firstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("lastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("middleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("role")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("SystemUsers");
                 });
 #pragma warning restore 612, 618
         }

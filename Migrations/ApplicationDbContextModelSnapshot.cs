@@ -84,6 +84,51 @@ namespace WebApplication1.Migrations
                     b.ToTable("Patients");
                 });
 
+            modelBuilder.Entity("WebApplication1.Data.Representative", b =>
+                {
+                    b.Property<int>("RepresentativeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HospitalId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("kebele")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("kifleketema")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("middleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("region")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("woreda")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("RepresentativeId");
+
+                    b.ToTable("Representatives");
+                });
+
             modelBuilder.Entity("WebApplication1.Data.SystemUsers", b =>
                 {
                     b.Property<int>("UserId")

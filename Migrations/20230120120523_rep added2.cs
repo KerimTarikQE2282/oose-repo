@@ -2,7 +2,7 @@
 
 namespace WebApplication1.Migrations
 {
-    public partial class usertablecreated : Migration
+    public partial class repadded2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

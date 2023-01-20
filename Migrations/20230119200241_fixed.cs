@@ -2,7 +2,7 @@
 
 namespace WebApplication1.Migrations
 {
-    public partial class userfixed : Migration
+    public partial class @fixed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

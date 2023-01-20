@@ -25,7 +25,7 @@ namespace WebApplication1.Controllers
             return Ok(Hospitals);
         }
         [HttpGet("{UserId}")]
-        public async Task<IActionResult> GetUserById([FromRoute] int UserId)
+       /* public async Task<IActionResult> GetUserById([FromRoute] int UserId)
         {
             var Hospital = await _hr.GetHospitalsAsync(_HospitalId);
             if (Hospital == null)
@@ -33,12 +33,16 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
             return Ok(Hospital);
-        }
+        }*/
         [HttpPost("")]
         [ActionName(nameof(AddUser))]
         public async Task<IActionResult> AddUser([FromBody] SystemUsersModel user)
         {
             var UserId = await _hr.AddUserAsync(user);
+            if (UserId == null)
+            {
+                return null;
+            }
             return Ok(UserId) /*CreatedAtAction(nameof(GetHospitalById),new { HospitalId= HospitalId ,controller="Hospitals"}, HospitalId)*/;
         }
 

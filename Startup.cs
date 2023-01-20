@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using WebApplication1.Data;
 using WebApplication1.Repository.Hospital;
 using WebApplication1.Repository.Patient;
+using WebApplication1.Repository.Representative;
 using WebApplication1.Repository.User;
 
 namespace WebApplication1
@@ -36,6 +37,7 @@ namespace WebApplication1
             services.AddTransient<IPatientRepository, PatientRepository>();
             services.AddScoped<IHospitalReporitory,Hospitals_reposirory>();
             services.AddScoped<IUsersRepository, UsersRepository>();
+            services.AddScoped<IRepresentative_repo, Representative_repo>();
             var provider = services.BuildServiceProvider();
             var configuration =provider.GetService<IConfiguration>();
             services.AddCors(

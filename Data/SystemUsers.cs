@@ -15,5 +15,8 @@ namespace WebApplication1.Data
         public string role { get; set; }
         public int HospitalId { get; set; }
 
+        
+
+
     }
 }
