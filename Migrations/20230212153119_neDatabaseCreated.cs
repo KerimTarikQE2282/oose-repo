@@ -2,7 +2,7 @@
 
 namespace WebApplication1.Migrations
 {
-    public partial class repadded2 : Migration
+    public partial class neDatabaseCreated : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

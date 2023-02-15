@@ -12,7 +12,7 @@ namespace WebApplication1.Data
         public string kifleketema { get; set; }
         public string wereda { get; set; }
         public string DOB{ get; set; }
-        
+        public string Email { get; set; }
         public string phoneNumber { get; set; }
         public string emergencyPhone { get; set; }
     }

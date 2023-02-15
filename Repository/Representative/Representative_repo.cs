@@ -59,6 +59,20 @@ namespace WebApplication1.Repository.Representative
 
 
         }
+        public async Task<RepresentativeModel> RepresentativeLogin(string Email, string _password)
+        {
+            var records = await _context.Representatives.Where(x => x.Email == Email && x.Password == _password).Select(x => new RepresentativeModel()
+            {
+
+                RepresentativeId = x.RepresentativeId,
+                FirstName = x.FirstName,    
+                Role = x.Role
+
+
+
+            }).FirstOrDefaultAsync();
+            return records;
+        }
 
 
 

@@ -34,9 +34,9 @@ namespace WebApplication1.Repository.Patient
         }
 
 
-        public async Task<PatientsModel> Search(string phoneNumber)
+        public async Task<PatientsModel> Search(string _Email)
         {
-            var records = await _context.Patients.Where(x => x.phoneNumber == phoneNumber).Select(x => new PatientsModel()
+            var records = await _context.Patients.Where(x => x.Email == _Email).Select(x => new PatientsModel()
             {
                 firstName = x.firstName,
                 middleName = x.middleName,
@@ -45,6 +45,7 @@ namespace WebApplication1.Repository.Patient
                 kifleketema = x.kifleketema,
                 wereda = x.wereda,
                 DOB = x.DOB,
+                Email=x.Email,
                 phoneNumber = x.phoneNumber,
                 emergencyPhone = x.emergencyPhone
 

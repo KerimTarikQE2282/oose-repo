@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X/Bbdu0nSKi1CzbaIaSsPkhOCo3jFIlPXJVl/J7R9xF7kZ3fUq44frkohX35v3XV5J2+5BNhGaVjZlbwRSVnnQ==",
+  "dgSpecHash": "6CUVA346TmS6p8wF0RElk1aS4mGhzBKWMUwiSmaiCaNNANRXFPHDxPqwsECkQjzaStpYj90iXZShc5MrjIPHYg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kerim\\Desktop\\to other\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\kerim\\Desktop\\New folder\\AkmegnBackend\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kerim\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kerim\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.0.1\\microsoft.aspnetcore.cors.2.0.1.nupkg.sha512",

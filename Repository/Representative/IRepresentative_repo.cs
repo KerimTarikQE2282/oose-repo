@@ -8,5 +8,6 @@ namespace WebApplication1.Repository.Representative
     {
         Task<List<RepresentativeModel>> GetAllRepresentativesAsync();
         Task<int> AddRepresentativesAsync(RepresentativeModel rep);
+        Task<RepresentativeModel> RepresentativeLogin(string Email, string _password);
     }
 }

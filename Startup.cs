@@ -13,10 +13,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Data;
+using WebApplication1.Repository.Admin;
+using WebApplication1.Repository.DiagnosisRepo;
 using WebApplication1.Repository.Hospital;
 using WebApplication1.Repository.Patient;
 using WebApplication1.Repository.Representative;
 using WebApplication1.Repository.User;
+using WebApplication1.Repository.Vitals;
 
 namespace WebApplication1
 {
@@ -38,6 +41,10 @@ namespace WebApplication1
             services.AddScoped<IHospitalReporitory,Hospitals_reposirory>();
             services.AddScoped<IUsersRepository, UsersRepository>();
             services.AddScoped<IRepresentative_repo, Representative_repo>();
+            services.AddScoped<IVitalsRepo, VitalsRepo>();
+            services.AddScoped<IAdmin_repository, Admin_repository>();
+            services.AddScoped<IdiagnosisRepo, DiagnosisRepo>();
+          
             var provider = services.BuildServiceProvider();
             var configuration =provider.GetService<IConfiguration>();
             services.AddCors(

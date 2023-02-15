@@ -4,6 +4,7 @@ namespace WebApplication1.Models
 {
     public class PatientsModel
     {
+        [Key]
         public int id { get; set; }
         public string firstName { get; set; }
         public string middleName { get; set; }
@@ -12,7 +13,7 @@ namespace WebApplication1.Models
         public string kifleketema { get; set; }
         public string wereda { get; set; }
         public string DOB { get; set; }
-        
+        public string Email { get; set; }
         public string phoneNumber { get; set; }
         public string emergencyPhone { get; set; }
     }

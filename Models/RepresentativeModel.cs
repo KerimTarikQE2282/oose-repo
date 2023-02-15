@@ -9,6 +9,7 @@
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string  region{ get; set; }
+        public string Role { get; set; }
 
         public string kebele { get; set; }
         public string kifleketema { get; set; }

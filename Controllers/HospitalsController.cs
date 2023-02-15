@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using WebApplication1.Data;
 using WebApplication1.Models;
@@ -30,10 +31,10 @@ namespace WebApplication1.Controllers
                return Ok(Hospital);
            }
        }*/
-        [HttpGet("{_HospitalId}")]
-        public async Task<IActionResult> GetHospitalById([FromRoute] int _HospitalId)
+        [HttpGet("{_HospitalName}")]
+        public async Task<IActionResult> GetHospitalByName([FromRoute] string _HospitalName)
         {
-            var Hospital = await _hr.GetHospitalsAsync(_HospitalId);
+            var Hospital = await _hr.GetHospitalsAsync(_HospitalName);
             if (Hospital == null)
             {
                 return NotFound();

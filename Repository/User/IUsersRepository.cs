@@ -8,5 +8,6 @@ namespace WebApplication1.Repository.User
     {
         Task<List<SystemUsersModel>> GetAllUsersAsync();
         Task<int> AddUserAsync(SystemUsersModel User);
+        Task<SystemUsersModel> UserLogin(string Email, string _password);
     }
 }

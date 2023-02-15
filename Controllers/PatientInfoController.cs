@@ -2,12 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using WebApplication1.Data;
 using WebApplication1.Models;
 using WebApplication1.Repository.Patient;
 
 namespace WebApplication1.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class PatientInfoController : ControllerBase
     {
@@ -23,10 +24,10 @@ namespace WebApplication1.Controllers
             var Patients =await PatientRepo.GetAllPatientsAsync();
             return Ok(Patients);
         }*/
-        [HttpGet("{phoneNumber}")]
-        public async Task<IActionResult> Search(string phoneNumber)
+        [HttpPost("")]
+        public async Task<IActionResult> Search ([FromBody]Search Email)
         {
-            var Patient = await PatientRepo.Search(phoneNumber);
+            var Patient = await PatientRepo.Search(Email.Email);
             if (Patient == null)
             {
                 return NotFound();
@@ -34,11 +35,13 @@ namespace WebApplication1.Controllers
             return Ok(Patient);
         }
         [HttpPost("")]
+        [ActionName(nameof(RegisterPatient))]
         public async Task<IActionResult> RegisterPatient([FromBody]PatientsModel patientModel)
         {
-            Console.Write(patientModel);
+            
             var id = await PatientRepo.RegisterPatientAsync(patientModel);
-            return CreatedAtAction(nameof(Search), new { id = id, controller = "Patients" }, id);
+         
+            return Ok(id);
         }
 
     }

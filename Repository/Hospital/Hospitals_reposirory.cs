@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace WebApplication1.Repository.Hospital
             _context = context;
         }
 
+        [HttpGet]
         public async Task<List<HospitalsModel>> GetAllHospitalsAsync()
         {
             var records = await _context.Hospitals.Select(x => new HospitalsModel()
@@ -31,9 +33,9 @@ namespace WebApplication1.Repository.Hospital
             }).ToListAsync();
             return records;
         }
-        public async Task<HospitalsModel> GetHospitalsAsync(int _HospitalId)
+        public async Task<HospitalsModel> GetHospitalsAsync(string _HospitalName)
         {
-            var records = await _context.Hospitals.Where(x => x.HospitalId == _HospitalId).Select(x => new HospitalsModel()
+            var records = await _context.Hospitals.Where(x => x.HospitalName == _HospitalName).Select(x => new HospitalsModel()
             {
 
                 HospitalId = x.HospitalId,
@@ -48,19 +50,41 @@ namespace WebApplication1.Repository.Hospital
         }
         public async Task<int> AddHospitalsAsync(HospitalsModel Hospital)
         {
-            var hospital = new Hospitals()
+
+            var records = await _context.Hospitals.Where(x => x.HospitalName == Hospital.HospitalName).Select(x => new HospitalsModel()
             {
 
-                HospitalName = Hospital.HospitalName,
-                HospitalRep = Hospital.HospitalRep,
-                HospitalKebele = Hospital.HospitalKebele,
-                HospitalKifleKetema = Hospital.HospitalKifleKetema,
-                HospitalWoreda = Hospital.HospitalWoreda
-            };
-            _context.Hospitals.Add(hospital);
-            await _context.SaveChangesAsync();
-            return hospital.HospitalId;
+                HospitalId = x.HospitalId,
+                HospitalName = x.HospitalName,
+                HospitalRep = x.HospitalRep,
+                HospitalKebele = x.HospitalKebele,
+                HospitalKifleKetema = x.HospitalKifleKetema,
+                HospitalWoreda = x.HospitalWoreda
 
+            }).FirstOrDefaultAsync();
+            if (records != null)
+            {
+                return 0;
+            }
+
+            var hospital = new Hospitals()
+                {
+
+                    HospitalName = Hospital.HospitalName,
+                    HospitalRep = Hospital.HospitalRep,
+                    HospitalKebele = Hospital.HospitalKebele,
+                    HospitalKifleKetema = Hospital.HospitalKifleKetema,
+                    HospitalWoreda = Hospital.HospitalWoreda
+                };
+                _context.Hospitals.Add(hospital);
+                await _context.SaveChangesAsync();
+                return hospital.HospitalId;
+            
+            
+
+
+               
+            
 
         }
 

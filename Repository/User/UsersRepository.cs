@@ -54,5 +54,19 @@ namespace WebApplication1.Repository.User
 
 
         }
+        public async Task<SystemUsersModel> UserLogin(string Email, string _password)
+        {
+            var records = await _context.SystemUsers.Where(x => x.email == Email && x.password == _password).Select(x => new SystemUsersModel()
+            {
+
+                UserId = x.UserId,
+                firstName = x.firstName,
+                role = x.role,
+
+
+
+            }).FirstOrDefaultAsync();
+            return records;
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace WebApplication1.Repository.Hospital
     public interface IHospitalReporitory
     {
         Task<List<HospitalsModel>> GetAllHospitalsAsync();
-        Task<HospitalsModel> GetHospitalsAsync(int _HospitalId);
+        Task<HospitalsModel> GetHospitalsAsync(string _HospitalName);
         Task<int> AddHospitalsAsync(HospitalsModel Hospital);
     }
 }
