@@ -9,7 +9,7 @@ using WebApplication1.Repository.Hospital;
 
 namespace WebApplication1.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class HospitalsController : ControllerBase
     {
@@ -47,6 +47,13 @@ namespace WebApplication1.Controllers
         {
             var HospitalId = await _hr.AddHospitalsAsync(hospital);
             return Ok(HospitalId) /*CreatedAtAction(nameof(GetHospitalById),new { HospitalId= HospitalId ,controller="Hospitals"}, HospitalId)*/;
+        }
+        [HttpPut("{_HospitalName}")]
+       
+        public async Task<IActionResult> UpdateHospital([FromBody] HospitalsModel hospital, [FromRoute] string _HospitalName)
+        {
+           var val= await _hr.UpdateHospital(_HospitalName, hospital);
+            return Ok(val) /*CreatedAtAction(nameof(GetHospitalById),new { HospitalId= HospitalId ,controller="Hospitals"}, HospitalId)*/;
         }
     }
 }

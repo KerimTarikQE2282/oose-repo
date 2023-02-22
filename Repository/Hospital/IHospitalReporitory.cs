@@ -9,5 +9,6 @@ namespace WebApplication1.Repository.Hospital
         Task<List<HospitalsModel>> GetAllHospitalsAsync();
         Task<HospitalsModel> GetHospitalsAsync(string _HospitalName);
         Task<int> AddHospitalsAsync(HospitalsModel Hospital);
+        Task<int> UpdateHospital(string _HospitalName, HospitalsModel hospitalModel);
     }
 }

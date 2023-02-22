@@ -23,5 +23,17 @@ namespace WebApplication1.Controllers
             var HospitalId = await _hr.AddDiagnosis(Diagnosis);
             return Ok(HospitalId) /*CreatedAtAction(nameof(GetHospitalById),new { HospitalId= HospitalId ,controller="Hospitals"}, HospitalId)*/;
         }
+    
+
+             [HttpPost("")]
+        public async Task<IActionResult> GetSymptomByEmail([FromBody] string Email)
+        {
+            var Diagnosis = await _hr.SearchDiagnosticAndPrescription(Email);
+            if (Diagnosis == null)
+            {
+                return NotFound("not found");
+            }
+            return Ok(Diagnosis);
+        }
     }
 }

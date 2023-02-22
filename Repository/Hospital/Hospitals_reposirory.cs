@@ -87,6 +87,36 @@ namespace WebApplication1.Repository.Hospital
             
 
         }
+        public async Task <int> UpdateHospital(string _HospitalName,HospitalsModel hospitalModel)
+        {
+            var Hospital = await _context.Hospitals.Where(x => x.HospitalName == _HospitalName).Select(x => new HospitalsModel()
+            {
+
+                HospitalId = x.HospitalId,
+                HospitalName = x.HospitalName,
+                HospitalRep = x.HospitalRep,
+                HospitalKebele = x.HospitalKebele,
+                HospitalKifleKetema = x.HospitalKifleKetema,
+                HospitalWoreda = x.HospitalWoreda
+
+            }).FirstOrDefaultAsync();
+            if(Hospital !=null)
+            {
+                Hospital.HospitalName = hospitalModel.HospitalName;
+                Hospital.HospitalRep = hospitalModel.HospitalRep;
+                Hospital.HospitalKebele = hospitalModel.HospitalKebele;
+                Hospital.HospitalKifleKetema = hospitalModel.HospitalKifleKetema;
+                Hospital.HospitalWoreda = hospitalModel.HospitalWoreda;
+
+              var val= await _context.SaveChangesAsync();
+                return val;
+            }
+            else
+            {
+                return 0;
+            }
+           
+        }
 
     }
 }
